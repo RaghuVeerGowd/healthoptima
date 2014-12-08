@@ -1,0 +1,55 @@
+<style type="text/css">
+	h1
+	{
+		position: absolute;
+		top: 5%;
+		left: 30%;
+		color: red;
+
+	}
+	form
+	{
+		position: absolute;
+		top: 15%;
+		left: 20%;
+		right: 35%;
+
+	}
+	body
+	{
+		background-image: url("http://www.freevector.com/site_media/preview_images/FreeVector-Abstract-Spring-Background.jpg");
+		background-size: 1300px 700px;
+		background-repeat: no-repeat;
+
+	}
+</style>
+
+<h1> Appointment Form </h1>
+<form>
+<table style="border: 1px solid black;">
+	<tr>
+		<th> Name </th><th/><th/><th/>
+		<th> Phone_number </th><th/><th/><th/>
+		<th> Doctor </th><th/><th/><th/>
+		<th> Appointment Date </th><th/><th/><th/>
+		<th> Action </th><th/><th/><th/>
+	</tr>
+	<% @patient.each do |p| %>
+	
+	<% 
+	if !p.doctor_id.nil?
+		@doctor = Doctor.where(:id=>p.doctor_id).first.doctor_name 
+	end
+	%> 
+	<tr>
+		<td> <%= p.name %> </td><td></td><td></td><td \>
+		<td> <%= p.ph_number %> </td><td></td><td></td><td \>
+		<td><%= @doctor  %></td><td></td><td></td><td \>
+		<td><%= p.appointment_date %></td><td></td><td \><td \>
+		</td>
+	    <td><%= link_to "Delete", patients_path(p), method: :delete, data: { confirm:  "Are you sure!"}%></td>
+	    <td><%= link_to 'Edit', edit_patient_path(p) %></td>
+	</tr>
+	<% end %>
+</table><br/><br/>
+<%= link_to "back", new_patient_path %>

@@ -1,0 +1,28 @@
+<h1>doctor Details</h1>
+<p>
+	<table>
+		<tr>
+			<td><strong>Doctor name</strong>
+			<%= @patients.doctor_name %> </td>
+		</tr>
+		<tr>
+			<td><strong>xpertise</strong>
+			<%= @patients.xpertise%></td>
+		</tr>
+		<tr>
+			<td><strong>experience</strong>
+			<%= @patients.experience%></td>
+		</tr>
+		<tr>
+			<td><strong>email</strong>
+			<%= @patients.email%></td>
+		</tr>
+		<tr>
+			<td><strong>gender</strong>
+			<%= @patients.gender%></td>
+		</tr>
+	</table>
+</p>
+<tr>
+	<td><%= link_to 'back', patients_path %></td>
+</tr>

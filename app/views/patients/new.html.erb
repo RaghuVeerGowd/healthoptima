@@ -1,0 +1,66 @@
+<style type="text/css">
+	
+	h1
+	{
+		
+		
+		position: absolute;
+		top: 5%;
+		left: 30%;
+		color: yellow;
+
+
+	}
+	form
+	{
+		position: absolute;
+		top: 20%;
+		left: 30%;
+		right: 35%;
+
+	}
+	body
+	{
+		background-image: url("http://bestwallpaperhd.com/wp-content/uploads/2013/03/background-flowers.jpg");
+		background-size: 1300px 700px;
+		background-repeat: no-repeat;
+
+
+	}
+
+</style>
+
+<h1> Patient Login Page </h1>
+<%= form_for @patient do |f| %>
+<table>
+	
+	<tr>
+		<td> Patient Name </td>
+		<td><%= f.text_field :name %></td>
+	<tr>
+		<td> Phone_number </td>
+		<td><%= f.number_field :ph_number %></td>
+	</tr>
+	<tr><td>address</td>
+		<td><%= f.text_field :address%></td>
+	</tr>
+	<tr>
+		<td>reason</td>
+		<td><%= f.text_field :reason%></td>
+	<tr>
+		<td> date of appointment </td>
+		<td><%= date_select("patient", "appointment_date", :start_year => 2014, :end_year =>2015) %>
+		</td>
+		</tr>
+	</tr>
+
+	<tr>
+		
+		<td><%= f.label :doctor %><br /></td>
+		<td><%= collection_select(:patient, :doctor_id, Doctor.all, :id, :doctor_name)  %> </td>
+		
+	</tr>
+</table>
+<%= f.submit %><br/><br/>
+<%= link_to "Next", patients_path %>
+<% end %>	

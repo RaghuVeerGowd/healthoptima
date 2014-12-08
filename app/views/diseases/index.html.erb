@@ -1,0 +1,59 @@
+<style type="text/css">
+	
+	h1
+	{
+		
+		
+		position: absolute;
+		top: 5%;
+		left: 30%;
+		color: black;
+
+
+	}
+	form
+	{
+		position: absolute;
+		top: 20%;
+		left: 10%;
+		right: 35%;
+
+	}
+	body
+	{
+		background-image: url("http://ugodigital.com/wp-content/uploads/2014/02/clean-bg_6.jpg");
+		background-size: 1300px 700px;
+		background-repeat: no-repeat;
+	}
+
+</style>
+
+<h1> Showing Diseases </h1>
+<form>
+<table style="border: 1px solid black;">
+	<tr>
+	<th> Disease Name </th>
+		<th> Symptoms </th><th/><th/>
+		<th> Action </th><th/><th/>
+	</tr>
+		<tr> 
+			<% @disease.each do |d| %> 
+			<tr>
+				<td> <%= d.diseases_name %></td>
+				<td> <%= d.symptoms %> </td><td></td>
+				<td style="text-align: center;">
+				<% if user_signed_in? %>	
+				<td><%= link_to "Delete", disease_path(d), method: :delete, data: { confirm:  "Are you sure!" }%></td>
+				<td><%= link_to 'Edit', edit_disease_path(d) %></td>
+				<% end %>
+
+			</tr>
+		</tr> 
+	<% end %>
+</table><br \>
+<% if user_signed_in? %>
+<%= link_to "back", new_disease_path %><br /><br />
+<% end %>
+<% if !user_signed_in? %>
+<%= link_to 'Previous', root_path %>
+<% end %>

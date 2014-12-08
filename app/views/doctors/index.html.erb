@@ -1,0 +1,64 @@
+<style type="text/css">
+	h1
+	{
+		position: absolute;
+		top: 5%;
+		left: 30%;
+		color: red;
+
+	}
+	form
+	{
+		position: absolute;
+		top: 20%;
+		left: 30%;
+		right: 35%;
+
+	}
+	body
+	{
+		background-image: url("http://itsquare.pt/wp-content/uploads/2014/10/21.jpg");
+		background-size: 1300px 700px;
+		background-repeat: no-repeat;
+
+
+	}
+</style>
+
+
+
+<h1> Number fo Patients assigned</h1>
+<form>
+<table style="border: 1px solid black;">
+	<tr>
+		<th> doctor Name </th><th></th><th></th>
+		<th>No of patients</th><th></th>
+		<th> Action </th>
+	</tr>
+
+	<% @doctor.each do |d| %>
+	
+	<tr>
+		<td> <%= d.doctor_name %></td><td></td><td></td>
+		
+		<td > <% 
+			a = Patient.where(:doctor_id => d.id)
+			if !a.nil? or !a.empty?
+				c = a.count
+			else
+				c = 0;
+			end
+			%><%= c %></td><td></td>
+	    <td><%= link_to "Delete", doctors_path(d), method: :delete, data: { confirm:  "Are you sure!"}%></td>
+	</tr>
+	<% end %>
+</table> <br/>
+<%= link_to "Back", new_doctor_path %>
+<table>
+	<h3> To edit doctor Information <h3>
+	<% @doctor.each do |e| %>
+	<tr>
+		<td> <%= link_to "Edit", edit_doctor_path(e) %></td>
+	</tr>
+	<% end %>
+</table>

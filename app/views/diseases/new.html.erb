@@ -1,0 +1,48 @@
+<style type="text/css">
+	
+	h1
+	{
+		
+		
+		position: absolute;
+		top: 5%;
+		left: 30%;
+		color: red;
+
+
+	}
+	form
+	{
+		position: absolute;
+		top: 20%;
+		left: 30%;
+		right: 35%;
+
+	}
+	body
+	{
+		background-image: url("http://www.thevectorart.com/wp-content/uploads/2011/04/Abstract-Blue-Background.jpg");
+		background-size: 1300px 700px;
+		background-repeat: no-repeat;
+
+	}
+
+</style>
+
+
+<h1> Diseases page </h1>
+<%= form_for @disease do |f| %>
+<table align="center"  cellpadding="3" cellspacing="5">
+	<tr>
+		<td>  Diseases Name </td>
+		<td> <%= f.text_field :diseases_name %> </td>
+	</tr>
+	<tr>
+		<td> Symptoms</td>
+		<td><%= f.text_field :symptoms %></td>
+	</tr>
+</table>
+<%= f.submit %><br /><br />
+<%= link_to "Next" , diseases_path %><br /><br /><br />
+<%= link_to "Back" , home2_index_path %>
+<% end %>

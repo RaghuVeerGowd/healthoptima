@@ -1,0 +1,24 @@
+<h1>Patients Details</h1>
+<p>
+	<table>
+		<tr>
+			<td><strong>patient name</strong>
+			<%= @patients.name%></td>
+		</tr>
+		<tr>
+			<td><strong>phone_no</strong>
+			<%= @patients.ph_number%></td>
+		</tr>
+		<tr>
+			<td><strong>address</strong>
+			<%= @patients.address%></td>
+		</tr>
+		<tr>
+			<td><strong>reason</strong>
+			<%= @patients.reason%></td>
+		</tr>
+	</table>
+</p>
+<tr>
+	<td><%= link_to 'back', patients_path %></td>
+</tr>

@@ -1,0 +1,55 @@
+<style type="text/css">
+	
+	h1
+	{
+		
+		
+		position: absolute;
+		top: 5%;
+		left: 10%;
+		color: black;
+
+
+	}
+	form
+	{
+		position: absolute;
+		top: 20%;
+		left: 10%;
+		right: 35%;
+
+	}
+	body
+	{
+		background-image: url("http://ahdimages.com/wp-content/uploads/2014/03/photo-background-1.jpg");
+		background-size: 1300px 700px;
+		background-repeat: no-repeat;
+
+	}
+
+</style>
+
+
+<h1> Hospital adding Page </h1>
+<%= form_for @hospital do |f| %>
+<table align="center"  cellpadding="3" cellspacing="5">
+	<tr>
+		<td>  Hospital Name </td>
+		<td> <%= f.text_field :hospital_name %> </td>
+		<tr>
+		<td> Hospital address</td>
+		<td><%= f.text_field :hospital_address %></td>
+	</tr>
+	<tr>
+		<td> city </td>
+		<td><%= f.text_field :city %></td>
+	</tr>
+	<tr>
+		<td> Area </td>
+		<td><%= f.text_field :area %></td>
+	</tr>
+</table>
+<%= f.submit %><br/><br/>
+<%= link_to "Next" , hospitals_path %><br/><br/>
+<%= link_to "Back" , home2_index_path %>
+<% end %>

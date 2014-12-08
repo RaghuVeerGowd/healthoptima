@@ -1,0 +1,56 @@
+<style type="text/css">
+  
+  h1
+  {
+    
+    
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    color: blue;
+
+
+  }
+  form
+  {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    right: 35%;
+
+  }
+  body
+  {
+    background-image: url("http://www.winningthemoneygamewithike.com/wp-content/uploads/2013/06/2.jpg");
+    background-size: 1300px 700px;
+    background-repeat: no-repeat;
+
+
+  }
+
+</style>
+
+
+<h1>Hi Welcome to healthoptima !!! </h1> <br\><br\>
+
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %></div>
+
+  <div><%= f.label :role_id %><br />
+  <%= f.select :role_id, options_from_collection_for_select(Role.all, 'id', 'name') %></div>
+
+  <div><%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+  <div><%= f.submit "Sign up" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>

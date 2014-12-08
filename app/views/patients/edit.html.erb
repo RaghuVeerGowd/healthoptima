@@ -1,0 +1,65 @@
+<style type="text/css">
+  h1
+  {
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    color: red;
+
+  }
+  form
+  {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    right: 35%;
+
+  }
+  body
+  {
+    background-image: url("http://www.psdgraphics.com/file/fresh-green-background.jpg");
+    background-size: 1300px 700px;
+    background-repeat: no-repeat;
+
+  }
+</style>
+
+<h1>Editing Ptient Details</h1>
+<% if flash[:error] %>
+    <div class="error"><%= flash[:error] %></div>
+<% end %>
+
+<%= form_for @patient  do |f| %>
+  <p>
+    <%= f.label :name%><br>
+    <%= f.text_field :name %>
+  <p>
+    <%= f.label :ph_number%><br>
+    <%= f.text_field :ph_number %>
+  </p>
+  <p>
+    <%= f.label :reason %><br>
+    <%= f.date_field :reason %>
+  </p>
+
+  <p>
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </p>
+
+  <p> 
+    <%= f.label :appointment_date %><br>
+    <%= f.text_field :appointment_date %>
+  </p>
+  <tr>
+    
+    <td><%= f.label :doctor %><br /></td>
+    <td><%= collection_select(:patient_id, :doctor_id, Doctor.all, :id, :doctor_name)  %> </td>
+
+  </tr>
+  
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>  

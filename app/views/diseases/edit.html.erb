@@ -1,0 +1,49 @@
+<style type="text/css">
+  
+  h1
+  {
+    
+    
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    color: black;
+
+
+  }
+  form
+  {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    right: 35%;
+
+  }
+  body
+  {
+    background-image: url("http://images.alphacoders.com/124/12453.jpg");
+    background-size: 1300px 700px;
+    background-repeat: no-repeat;
+  }
+
+</style>
+
+<h1>Editing Diseases Details</h1>
+<% if flash[:error] %>
+    <div class="error"><%= flash[:error] %></div>
+<% end %>
+
+<%= form_for @disease do |f| %>
+  <p>
+    <%= f.label :diseases_name%><br>
+    <%= f.text_field :diseases_name %>
+  </p>
+  <p>
+    <%= f.label :symptoms %><br>
+    <%= f.date_field :symptoms %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+  

@@ -1,0 +1,62 @@
+<style type="text/css">
+  
+  h1
+  {
+    
+    
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    color: blue;
+
+
+  }
+  form
+  {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    right: 35%;
+
+  }
+  body
+  {
+    background-image: url("http://www.pulsardesktop.eu/data/media/3/Colour%20Background%20613%201248360959.jpg");
+    background-size: 1300px 700px;
+    background-repeat: no-repeat;
+
+
+  }
+
+</style>
+
+<h1>Editing Hospital Details</h1>
+<% if flash[:error] %>
+    <div class="error"><%= flash[:error] %></div>
+<% end %>
+
+<%= form_for @hospital  do |f| %>
+  <p>
+    <%= f.label :hospital_name%><br>
+    <%= f.text_field :hospital_name %>
+  </p>
+  <p>
+    <%= f.label :hospital_address %><br>
+    <%= f.date_field :hospital_address %>
+  </p>
+
+  <p>
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </p>
+
+  <p>
+    <%= f.label :area %><br>
+    <%= f.text_field :area %>
+  </p>
+  
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

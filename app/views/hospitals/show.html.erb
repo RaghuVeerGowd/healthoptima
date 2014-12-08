@@ -1,0 +1,24 @@
+<h1>Hospitals Details</h1>
+<p>
+	<table>
+		<tr>
+			<td><strong>Hospital name</strong>
+			<%= @hospital.hospital_name%></td>
+		</tr>
+		<tr>
+			<td><strong>Hospital Address</strong>
+			<%= @hospital.hospital_address%></td>
+		</tr>
+		<tr>
+			<td><strong>city</strong>
+			<%= @hospital.city%></td>
+		</tr>
+		<tr>
+			<td><strong>area</strong>
+			<%= @hospital.area%></td>
+		</tr>
+	</table>
+</p>
+<tr>
+	<td><%= link_to 'back', hospitals_path %></td>
+</tr>

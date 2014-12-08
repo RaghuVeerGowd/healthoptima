@@ -1,0 +1,64 @@
+<style type="text/css">
+	
+	h1
+	{
+		
+		
+		position: absolute;
+		top: 5%;
+		left: 30%;
+		color: red;
+
+
+	}
+	form
+	{
+		position: absolute;
+		top: 20%;
+		left: 30%;
+		right: 35%;
+
+	}
+	body
+	{
+		background-image: url("http://images.all-free-download.com/images/graphiclarge/blue_abstract_background_310971.jpg");
+		background-size: 1300px 650px;
+		background-repeat: no-repeat;
+
+
+	}
+
+</style>
+
+
+<h1> Creating Doctors</h1>
+<%= form_for @doctor do |f| %>
+<table align="center"  cellpadding="3" cellspacing="5">
+	<tr>
+		<td>  Doctor Name </td>
+		<td> <%= f.text_field :doctor_name %> </td>
+	</tr>
+	<tr>
+		<td>specialization</td>
+		<td><%= f.text_field :expertise %></td>
+	</tr>
+	<tr>
+		<td>gender</td>
+		<td><%= f.radio_button 'gender','male' %>male
+		<%=f.radio_button 'gender','female'%>female</td>
+	</tr>
+	<tr>
+		<td>Experience</td>
+		<td><%= f.text_field :experience %></td>
+	</tr>
+	<tr>
+		<td>email_id</td>
+		<td><%= f.text_field :email %></td>
+	</tr>
+	<tr>
+		<td><%= f.hidden_field :user_id, :value => current_user.id %></td>
+	</tr>
+</table>
+<%= f.submit %><br/><br/>
+<%= link_to "Next", doctors_path %>
+<% end %>
