@@ -27,8 +27,9 @@ class DoctorsController < ApplicationController
 
        	if @doctor.update_attributes(doctor_params)
 
+       		flash[:success] ='The Hospital is Updated successfully!'
         	redirect_to doctors_path
-        	flash[:success] ='The Hospital is Updated successfully!'
+        	
        else
         	flash[:error] ='Missing Field'
         	redirect_to new_doctor_path

@@ -49,16 +49,9 @@
 				c = 0;
 			end
 			%><%= c %></td><td></td>
-	    <td><%= link_to "Delete", doctors_path(d), method: :delete, data: { confirm:  "Are you sure!"}%></td>
-	</tr>
+	    <td><%= link_to "Delete", doctor_path(d), method: :delete, data: { confirm:  "Are you sure!" }%></td>
+	    <td><%= link_to 'Edit', edit_doctor_path(d) %></td>
 	<% end %>
 </table> <br/>
 <%= link_to "Back", new_doctor_path %>
-<table>
-	<h3> To edit doctor Information <h3>
-	<% @doctor.each do |e| %>
-	<tr>
-		<td> <%= link_to "Edit", edit_doctor_path(e) %></td>
-	</tr>
-	<% end %>
-</table>
+	

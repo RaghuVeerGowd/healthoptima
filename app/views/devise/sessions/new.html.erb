@@ -13,9 +13,9 @@
 
 
 <h1>Hi Welcome to healthoptima !!!</h1><br\><br\>
-<%= link_to "Hospital lists", hospitals_path %><br/><br/>
-<%= link_to "Diseases and its symptoms", diseases_path %>
 
+<%= link_to "Hospital lists", new_hospital_path %><br/><br/>
+<%= link_to "Diseases and its symptoms", diseases_path %>
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
